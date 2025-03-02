@@ -13,13 +13,24 @@ enum DevelopmentProgram {
     NONE = "None" 
   }
 
+  enum MotorsportCategory{
+        F2 = 'Formula 2',
+        F3 = 'Formula 3',
+        F4 = 'Formula 4',
+        WEC = 'WEC',
+        Indy = 'Indy',
+        FE = 'Formula E',
+  }
+
 
 interface IDriver extends Document{
     name:string;
     nationality: string;
     dob:Date;
     developmentProgram: DevelopmentProgram;
-    photoUrl?: string
+    photoUrl?: string;
+    category?: MotorsportCategory;
+    
 
 
 }
@@ -33,7 +44,11 @@ const DriverSchema = new Schema<IDriver>({
         enum:Object.values(DevelopmentProgram),
         default:DevelopmentProgram.NONE
     },
-    photoUrl: { type: String }
+    photoUrl: { type: String },
+    category: {
+        type: String,
+        enum: Object.values(MotorsportCategory)
+    }
 
 })
 
