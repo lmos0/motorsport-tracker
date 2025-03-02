@@ -9,6 +9,7 @@ enum DevelopmentProgram {
     MCLAREN_YOUNG_DRIVER_PROGRAM = "McLaren Young Driver Program",
     WILLIAMS_DRIVER_ACADEMY = "Williams Driver Academy",
     SAUBER_ACADEMY = "Sauber Academy",
+    ASTON_MARTIN_YOUNG_DRIVER_PROGRAM = "Aston Martin Young Driver Program",
     NONE = "None" 
   }
 
