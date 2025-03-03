@@ -98,3 +98,9 @@ public/
 
 # Distribution folder
 dist/
+
+# IDE files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
