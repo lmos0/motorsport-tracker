@@ -109,8 +109,8 @@ export const getDriverTotalPoints = async (req: Request, res: Response) => {
             { $group: { _id: "$driverId", totalPoints: { $sum: "$pointsEarned" } } }
         ]);
         
-        console.log("Driver ID:", driverId);
-        console.log("Total Points:", totalPoints);
+        // console.log("Driver ID:", driverId);
+        // console.log("Total Points:", totalPoints);
         
         if (totalPoints.length === 0) {
             

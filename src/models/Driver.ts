@@ -18,8 +18,12 @@ enum DevelopmentProgram {
         F3 = 'Formula 3',
         F4 = 'Formula 4',
         WEC = 'WEC',
-        Indy = 'Indy',
+        Indy = 'IndyCar',
         FE = 'Formula E',
+        ELMS =  'ELMS',
+        DTM = 'DTM',
+        F1ACADEMY = 'F1 Academy',
+        OTHER = 'Other'
   }
 
 
