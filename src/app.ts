@@ -4,6 +4,7 @@ import championshipRouter from "./routes/championshipRoutes"
 import resultsRouter from "./routes/resultsRoutes"
 import cors from "cors"
 
+
 const app = express()
 
 app.use(cors(
@@ -16,6 +17,8 @@ app.use(express.json())
 app.use('/api/drivers', router)
 app.use('/api/championships', championshipRouter)
 app.use('/api/results', resultsRouter)
+
+
 
 
 export default app

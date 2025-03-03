@@ -1,19 +1,49 @@
 import { Request, Response } from 'express';
 import Driver from "../models/Driver";
+import { client } from "../config/redis";
 
-export const getDrivers = async (req: Request, res:Response) => {
-
-    try {
-        const drivers = await Driver.find()
-        res.json(drivers)
-        
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ message: "Error message" });
-    }
-
+export const getDrivers = async (req: Request, res: Response) => {
+    const cacheKey = 'drivers';
     
-}
+    try {
+     
+      if (!client.isOpen) {
+        console.warn('Redis client is not open, skipping cache');
+        const drivers = await Driver.find();
+        return res.json(drivers);
+      }
+      
+      
+      const cachedData = await client.get(cacheKey);
+      
+      if (cachedData) {
+        console.log('Cache hit');
+        return res.status(200).json(JSON.parse(cachedData));
+      }
+      
+      console.log('Cache miss: Fetching drivers data from DB');
+      const drivers = await Driver.find();
+      
+      // Store in cache
+      await client.set(cacheKey, JSON.stringify(drivers), {
+        EX: 3600 // 1 hour
+      });
+      
+      res.json(drivers);
+      
+    } catch (error) {
+      console.error('Error in getDrivers:', error);
+      
+      // Fallback to DB if Redis fails
+      try {
+        const drivers = await Driver.find();
+        res.json(drivers);
+      } catch (dbError) {
+        console.error('Database error:', dbError);
+        res.status(500).json({ message: "Error fetching drivers" });
+      }
+    }
+  };
 
 
 

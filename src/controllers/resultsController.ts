@@ -2,7 +2,7 @@ import { Request, Response } from "express";
 import Result from "../models/Result";
 import Championship from "../models/Championship";
 import mongoose from "mongoose";
-
+import { client } from "../config/redis";
 
 
 export const getResultById = async (req: Request, res: Response) => {
@@ -115,7 +115,7 @@ export const getDriverTotalPoints = async (req: Request, res: Response) => {
         if (totalPoints.length === 0) {
             
             const anyResults = await Result.find({ driverId: objectId });
-            console.log("Any results found:", anyResults.length);
+            //console.log("Any results found:", anyResults.length);
             
             return res.status(404).json({ message: "No results found for this driver" });
         }

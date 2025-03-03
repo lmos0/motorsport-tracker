@@ -3,7 +3,7 @@ import { getDrivers, addDriver, getDriverById, deleteDriver, updateDriver } from
 
 const router = express.Router()
 
-router.get('/', getDrivers)
+router.get('/', getDrivers as RequestHandler)
 router.get("/:id", getDriverById as RequestHandler); 
 router.post('/', addDriver)
 router.put("/:id", updateDriver as RequestHandler); 
