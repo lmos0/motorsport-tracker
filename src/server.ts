@@ -6,7 +6,7 @@ import { connectRedis } from "./config/redis";
 async function startServer() {
   // Connect to databases first
   await connectDB();
-  await connectRedis();
+  //await connectRedis();
   
   const PORT = process.env.PORT || 3001;
   
