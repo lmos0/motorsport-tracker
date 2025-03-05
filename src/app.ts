@@ -10,7 +10,8 @@ const app = express()
 app.use(cors({
     origin: [
         'http://localhost:5173',  
-        'https://motorsport-tracker-frontend.onrender.com'
+        'https://motorsport-tracker-frontend.onrender.com',
+        'https://superlicencetracker.com'
     ],
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization']
