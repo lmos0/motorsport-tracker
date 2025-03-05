@@ -131,3 +131,25 @@ export const getDriverTotalPoints = async (req: Request, res: Response) => {
         res.status(500).json({ message: "Error fetching total points" });
     }
 }
+
+export const getDriverResultsById = async (req: Request, res: Response) => {
+    try {
+        const { driverId } = req.params;
+
+        if(!mongoose.Types.ObjectId.isValid(driverId)){
+            return res.status(400).json({ message: "Invalid driver ID",
+                error: "Provided ID is not a valid MongoDB ObjectId" 
+             });
+        }
+
+        const results = await Result.find({ driverId }).populate("championshipId").sort({ year: -1 }).lean();
+        if (results.length === 0) {
+            return res.status(404).json({ message: "No results found for this driver", driverId });
+        }
+        res.status(200).json(results);
+    } catch (error) {
+        console.error("Error:", error);
+
+        res.status(500).json({ message: "Error fetching results" });
+    }
+}
