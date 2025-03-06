@@ -69,9 +69,6 @@ Ensure you have the following installed:
 - [ ] Improve caching strategies
 - [ ] Enhance UI with more analytics
 
-## Contributing
-Contributions are welcome! Feel free to open issues and submit pull requests.
-
 ## License
 This project is licensed under the MIT License.
 
