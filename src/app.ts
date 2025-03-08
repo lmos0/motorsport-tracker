@@ -2,6 +2,7 @@ import express from "express"
 import router from "./routes/routes"
 import championshipRouter from "./routes/championshipRoutes"
 import resultsRouter from "./routes/resultsRoutes"
+import contactRouter from "./routes/contactRoutes"
 import cors from "cors"
 
 
@@ -21,6 +22,7 @@ app.use(express.json())
 app.use('/api/drivers', router)
 app.use('/api/championships', championshipRouter)
 app.use('/api/results', resultsRouter)
+app.use('/api/contacts', contactRouter)
 
 
 
