@@ -64,7 +64,6 @@ Ensure you have the following installed:
 - Open `http://localhost:3000` for the frontend
 
 ## Roadmap
-- [ ] Implement user authentication
 - [ ] Add more racing series support
 - [ ] Improve caching strategies
 - [ ] Enhance UI with more analytics
@@ -73,5 +72,5 @@ Ensure you have the following installed:
 This project is licensed under the MIT License.
 
 ---
-Made with ❤️ by Luís
+Made by Luís
 
