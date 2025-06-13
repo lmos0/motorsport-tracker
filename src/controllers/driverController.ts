@@ -80,7 +80,7 @@ export const updateDriver = async (req:Request, res:Response) => {
         if(!updatedDriver){
             return res.status(404).json({message: "Driver not found"})
         }
-        res.status(201).json(updatedDriver)
+        res.status(200).json(updatedDriver)
     } catch (error) {
         console.error(error);
         res.status(500).json({ message: "Error message" });
