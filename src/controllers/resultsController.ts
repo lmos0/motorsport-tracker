@@ -90,7 +90,7 @@ export const deleteResult = async (req: Request, res: Response) => {
         if (!deletedResult) {
             return res.status(404).json({ message: "Result not found" });
         }
-        res.json({ message: "Result deleted successfully" });
+        res.status(200).json({ message: "Result deleted successfully" });
     } catch (error) {
         console.log(error);
         res.status(500).json({ message: "Error deleting result" });
